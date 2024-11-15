@@ -616,7 +616,7 @@
 
                                 <li><a href="<?= ADMIN_URL . '?ctl=listuser' ?>" class="menu-item <?= ($current_url == ADMIN_URL . '?ctl=listuser') ? 'active' : '' ?>">Users</a></li>
 
-                                <li><a href="<?= ADMIN_URL . '?ctl=listorder' ?>" class="menu-item <?= ($current_url == ADMIN_URL . '?ctl=listorder') ? 'active' : '' ?>">Orders</a></li>
+                                <li><a href="<?= ADMIN_URL . '?ctl=list-order' ?>" class="menu-item <?= ($current_url == ADMIN_URL . '?ctl=list-order') ? 'active' : '' ?>">Orders</a></li>
 
                             </ul>
                         </nav>
