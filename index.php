@@ -23,13 +23,18 @@ match ($ctl) {
     '', 'home'       => (new HomeController)->index(),
     'category'       => (new ClientCategoryController)->index(),
     'about'          => (new AboutController)->index(),
-    'shop'           =>(new ShopController)->index(),
-    'single-product' =>(new ShopController)->single(),
-    'contact'        =>(new ContactController)->index(),
-    'blog'           =>(new BlogController)->index(),
-    'my-account'     =>(new AccountController)->MyAccount(),
-    'sign-in'        =>(new AccountController)->SignIn(),
-    'sign-up'        =>(new AccountController)->SignUp(),
+    'shop'           => (new ShopController)->index(),
+    'single-product' => (new ShopController)->single(),
+    'contact'        => (new ContactController)->index(),
+    'blog'           => (new BlogController)->index(),
+    'my-account' => (new AccountController)->MyAccount(),
+    'sign-in'    => $_SERVER['REQUEST_METHOD'] === 'POST'
+        ? (new AccountController)->SignIn($_POST['email'], $_POST['password'])
+        : (new AccountController)->SignIn(),
+    'sign-up'    => $_SERVER['REQUEST_METHOD'] === 'POST'
+        ? (new AccountController)->SignUp($_POST['username'], $_POST['email'], $_POST['password'])
+        : (new AccountController)->SignUp(),
+    'logout' => (new AccountController)->LogOut(),
 
     default          => view("errors.404"),
 };
