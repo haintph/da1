@@ -112,7 +112,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-2.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-2.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">
@@ -142,7 +142,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-3.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-3.png'?>" alt="Product Images">
                             </a>
                             <div class="label-block label-right">
                                 <div class="product-badget">15% OFF</div>
@@ -175,7 +175,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-4.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-4.png'?>" alt="Product Images">
                             </a>
                             <div class="label-block label-right">
                                 <div class="product-badget">30% OFF</div>
@@ -208,7 +208,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-5.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-5.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">
@@ -238,7 +238,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-3.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-3.png'?>" alt="Product Images">
                             </a>
                             <div class="label-block label-right">
                                 <div class="product-badget">15% OFF</div>
