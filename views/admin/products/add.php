@@ -3,7 +3,7 @@ include_once ROOT_DIR . "views/admin/header.php"
 ?>
 <div class="app-main__inner">
     <h1>FORM ADD PRODUCT</h1>
-    <form action="<?= ADMIN_URL . '?ctl=storesp' ?>" method="post" enctype="multipart/form-data">
+    <form action=" ?ctl=storesp" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="">Ten san pham</label>
             <input type="text" name="product_name" id="" class="form-control">

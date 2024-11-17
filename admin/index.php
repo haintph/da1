@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../env.php";
+require_once __DIR__ . "../../env.php";
 require_once __DIR__ . "/../common/function.php";
 
 //include model
@@ -27,8 +27,8 @@ match ($ctl) {
     //user
     "listuser"  => (new AdminUserController)->index(),
     //order
-    "list-order"=>(new OrderController)->index(),
-    "show-order"=>(new OrderController)->show(),
+    "list-order" => (new OrderController)->index(),
+    "show-order" => (new OrderController)->show(),
 
 
     default => view("errors.404"),

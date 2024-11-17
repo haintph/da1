@@ -1,9 +1,13 @@
 <?php
-class ShopController{
-    public function index(){
-        return view('client.shop.shop');
+class ShopController
+{
+    public function index()
+    {
+        $products = (new Product)->all();
+        return view('client.shop.shop', compact("products"));
     }
-    public function single(){
+    public function single()
+    {
         return view('client.shop.single-product');
     }
 }
