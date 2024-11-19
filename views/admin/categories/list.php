@@ -46,7 +46,6 @@ include_once ROOT_DIR . "views/admin/header.php"
                             </span>
                         </div>
                     </form>
-
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group-sm btn-group">
                             <button class="btn btn-focus">This week</button>
@@ -54,7 +53,12 @@ include_once ROOT_DIR . "views/admin/header.php"
                         </div>
                     </div>
                 </div>
-
+                <?php
+                if (isset($_SESSION['message'])) {
+                    echo "<div class='alert alert-success'>{$_SESSION['message']}</div>";
+                    unset($_SESSION['message']); // Xóa session để tránh hiển thị lại
+                }
+                ?>
                 <div class="table-responsive">
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                         <thead>
@@ -68,35 +72,32 @@ include_once ROOT_DIR . "views/admin/header.php"
                         </thead>
                         <tbody>
 
-                            
+
                             <?php foreach ($categories as $cate): ?>
                                 <tr>
-                                <td class="text-center text-muted"><?= $cate['id'] ?></td>
-                                <td class="text-muted"><?= $cate['category_name'] ?></td>
-                                <td class="text-muted"> <img src="<?= ROOT_URL . 'images/' . $cate['img_category'] ?>" width="100" alt=""></td>
-                                <td class="text-muted"><?= $cate['type'] ?></td>
-                               
-                                <td class="text-center">
-                                    <a href="<?= ADMIN_URL . '?ctl=editcate&id=' . $cate['id'] ?>" data-toggle="tooltip" title="Edit"
-                                        data-placement="bottom"
-                                        class="btn btn-outline-warning border-0 btn-sm">
-                                        <span class="btn-icon-wrapper opacity-8">
-                                            <i class="fa fa-edit fa-w-20"></i>
-                                        </span>
-                                    </a>
-                                    <form class="d-inline" action="" method="post">
-                                        <button
-                                            class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                            type="submit" data-toggle="tooltip" title="Delete"
+                                    <td class="text-center text-muted"><?= $cate['id'] ?></td>
+                                    <td class="text-muted"><?= $cate['category_name'] ?></td>
+                                    <td class="text-muted"> <img src="<?= ROOT_URL . 'images/' . $cate['img_category'] ?>" width="100" alt=""></td>
+                                    <td class="text-muted"><?= $cate['type'] ? 'Trang sức' : 'Phụ kiện' ?></td>
+
+                                    <td class="text-center">
+                                        <a href="<?= ADMIN_URL . '?ctl=editcate&id=' . $cate['id'] ?>" data-toggle="tooltip" title="Edit"
                                             data-placement="bottom"
-                                            onclick="return confirm('Bạn có muốn xóa ?')">
+                                            class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                        </a>
+
+                                        <a href="<?= ADMIN_URL . '?ctl=deletecate&id=' . $cate['id'] ?>" class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+                                            onclick="return confirm('Bạn có muốn xóa : <?= $cate['category_name']?> ?')">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa fa-trash fa-w-20"></i>
                                             </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                                        </a>
+
+                                    </td>
+                                </tr>
                             <?php endforeach ?>
 
                         </tbody>

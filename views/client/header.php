@@ -54,30 +54,6 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-4 col-12">
-                        <!-- <div class="header-top-dropdown dropdown-box-style">
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    USD
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">USD</a></li>
-                                    <li><a class="dropdown-item" href="#">AUD</a></li>
-                                    <li><a class="dropdown-item" href="#">EUR</a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    EN
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">EN</a></li>
-                                    <li><a class="dropdown-item" href="#">ARB</a></li>
-                                    <li><a class="dropdown-item" href="#">SPN</a></li>
-                                </ul>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="col-md-4 col-5">
                         <div class="header-brand">
@@ -167,10 +143,9 @@
                                 <li class="menu-item-has-children">
                                     <a href="<?= ROOT_URL . '?ctl=shop' ?>">Cửa hàng</a>
                                     <ul class="axil-submenu">
-                                        <li><a href="#">Nhẫn</a></li>
-                                        <li><a href="#">Dây chuyền</a></li>
-                                        <li><a href="#">Vòng tay</a></li>
-
+                                        <?php foreach($categories as $cate): ?>
+                                            <li><a href="#"><?= $cate['category_name'] ?></a></li>
+                                        <?php endforeach ?>
                                     </ul>
                                 </li>
 

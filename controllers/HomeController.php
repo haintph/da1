@@ -3,6 +3,7 @@ class HomeController
 {
     public function index()
     {
-        return view("client.home");
+        $categories = (new Category)->list() ;
+        return view("client.home",compact('categories'));
     }
 }

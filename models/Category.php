@@ -4,7 +4,7 @@ class Category extends BaseModel
     //Lay tat ca danh muc
     public function list()
     {
-        $sql = "SELECT * FROM categories WHERE soft_delete = 0";
+        $sql = "SELECT * FROM categories WHERE soft_delete = 0 ORDER BY id DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,11 @@ class Category extends BaseModel
     //Cập nhật
     public function update($id, $data)
     {
-        $sql = "UPDATE categories SET cate_name=:cate_name, type=:type WHERE id=:id";
+        $sql = "UPDATE categories 
+        SET category_name	=:category_name	,
+        img_category=:img_category, 
+        type=:type 
+        WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         //Them id vao mang
         $data['id'] = $id;
@@ -40,6 +44,13 @@ class Category extends BaseModel
         $sql = "SELECT * FROM categories";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function find($id)
+    {
+        $sql = "SELECT * FROM categories WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

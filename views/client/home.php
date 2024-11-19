@@ -351,7 +351,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-6.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-6.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">
@@ -391,7 +391,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-7.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-7.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">
@@ -431,7 +431,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-8.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-8.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">
@@ -471,7 +471,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         <div class="thumbnail">
                             <a href="single-product.html">
                                 <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-9.png" alt="Product Images">
+                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-9.png'?>" alt="Product Images">
                             </a>
                             <div class="product-hover-action">
                                 <ul class="cart-action">

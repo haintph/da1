@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "/../env.php";
 require_once __DIR__ . "/../common/function.php";
 
@@ -18,17 +19,21 @@ match ($ctl) {
     "listsp"    => (new AdminProductController)->index(),
     "addsp"     => (new AdminProductController)->create(),
     'storesp'   => (new AdminProductController)->store(),
+    "editsp"     => (new AdminProductController)->edit(),
+    "updatesp"  => (new AdminProductController)->update(),
     'deletesp'  => (new AdminProductController)->delete(),
     //category
     "listcate"  => (new AdminCategoryController)->index(),
     "addcate"   => (new AdminCategoryController)->create(),
     "storecate" => (new AdminCategoryController)->store(),
-    "editcate"  => (new AdminCategoryController)->update(),
+    "editcate"  => (new AdminCategoryController)->edit(),
+    "updatecate" =>(new AdminCategoryController)->update(),
+    "deletecate"  => (new AdminCategoryController)->delete(),
     //user
     "listuser"  => (new AdminUserController)->index(),
     //order
-    "list-order"=>(new OrderController)->index(),
-    "show-order"=>(new OrderController)->show(),
+    "list-order" => (new OrderController)->index(),
+    "show-order" => (new OrderController)->show(),
 
 
     default => view("errors.404"),
