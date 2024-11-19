@@ -1,6 +1,17 @@
 <?php
 class AuthModel extends BaseModel
 {
+    public function all()
+    {
+        $sql = "SELECT * FROM users";
+        //Chuẩn bị thực thi
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //Trả về dữ liệu lấy được
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function checkUserExists($email, $username)
     {
         $sql = "SELECT * FROM users WHERE email = :email OR username = :username";
@@ -23,5 +34,18 @@ class AuthModel extends BaseModel
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['email' => $email]);
         return $stmt->fetch();
+    }
+
+    public function edit($data)
+    {
+        $sql = "UPDATE users SET username = :username, role = :role, image = :image WHERE email = :email";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindParam(':username', $data['username']);
+        $stmt->bindParam(':role', $data['role']);
+        $stmt->bindParam(':image', $data['image']);
+        $stmt->bindParam(':email', $data['email']);
+
+        return $stmt->execute();
     }
 }
