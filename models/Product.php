@@ -28,28 +28,10 @@ class Product extends BaseModel
     //Thêm mới sản phẩm 
     public function create($data)
     {
-<<<<<<< HEAD
         $sql = "  INSERT INTO products (category_id, product_name, img_product, description, status, brand, created_at) 
         VALUES (:category_id, :product_name, :img_product, :description, :status, :brand, NOW())";
         //Chuẩn bị thực thi
-=======
-        // Giả sử câu lệnh SQL của bạn có dạng như sau:
-        $sql = "INSERT INTO products (product_name, category_id, price, quantity, status, description, img_product) 
-                VALUES (:product_name, :category_id, :price, :quantity, :status, :description, :img_product)";
-
-        // Chuẩn bị câu lệnh SQL
->>>>>>> 552f2c61625c2b9bf2b0160468e0831f7c15e49a
         $stmt = $this->conn->prepare($sql);
-
-        // Liên kết các tham số với giá trị trong mảng $data
-        $stmt->bindParam(':product_name', $data['product_name']);
-        $stmt->bindParam(':category_id', $data['category_id']);
-        $stmt->bindParam(':price', $data['price']);
-        $stmt->bindParam(':quantity', $data['quantity']);
-        $stmt->bindParam(':status', $data['status']);
-        $stmt->bindParam(':description', $data['description']);
-        $stmt->bindParam(':img_product', $data['img_product']);
-
         // Thực thi câu lệnh SQL
         $stmt->execute();
     }
