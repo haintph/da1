@@ -24,6 +24,7 @@ match ($ctl) {
     '', 'home'       => (new HomeController)->index(),
     'category'       => (new ProductController)->list(),
     'about'          => (new AboutController)->index(),
+<<<<<<< HEAD
     'shop'           =>(new ProductController)->index(),
     'details'        =>(new ProductController)->detail(),
     'contact'        =>(new ContactController)->index(),
@@ -31,6 +32,20 @@ match ($ctl) {
     'my-account'     =>(new AccountController)->MyAccount(),
     'sign-in'        =>(new AccountController)->SignIn(),
     'sign-up'        =>(new AccountController)->SignUp(),
+=======
+    'shop'           => (new ShopController)->index(),
+    'single-product' => (new ShopController)->single(),
+    'contact'        => (new ContactController)->index(),
+    'blog'           => (new BlogController)->index(),
+    'my-account' => (new AccountController)->MyAccount(),
+    'sign-in'    => $_SERVER['REQUEST_METHOD'] === 'POST'
+        ? (new AccountController)->SignIn($_POST['email'], $_POST['password'])
+        : (new AccountController)->SignIn(),
+    'sign-up'    => $_SERVER['REQUEST_METHOD'] === 'POST'
+        ? (new AccountController)->SignUp($_POST['username'], $_POST['email'], $_POST['password'])
+        : (new AccountController)->SignUp(),
+    'logout' => (new AccountController)->LogOut(),
+>>>>>>> 552f2c61625c2b9bf2b0160468e0831f7c15e49a
 
     default          => view("errors.404"),
 };

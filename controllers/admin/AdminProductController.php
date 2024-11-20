@@ -18,20 +18,46 @@ class AdminProductController
     public function store()
     {
         $data = $_POST;
+<<<<<<< HEAD
         $data['img_product'] = ''; //truong hop khong nhap anh
         $file = $_FILES['img_product'];
         if ($file['size'] > 0) {
+=======
+
+        $data['img_product'] = '';
+
+        if (isset($_FILES['img_product']) && $_FILES['img_product']['size'] > 0) {
+            $file = $_FILES['img_product'];
+
+>>>>>>> 552f2c61625c2b9bf2b0160468e0831f7c15e49a
             $image = $file['name'];
-            //upload file 
-            move_uploaded_file($file['tmp_name'], "../images/" . $image);
+
+            if (move_uploaded_file($file['tmp_name'], "../images/" . $image)) {
+                $data['img_product'] = $image; // Gán tên ảnh vào dữ liệu
+            } else {
+                $data['img_product'] = '';
+            }
         }
+<<<<<<< HEAD
         $data['img_product'] = $image;
         $product = new Product;
         $product->create($data);
         $_SESSION['message'] = "Thêm dữ liệu thành công";
+=======
+        // if (empty($data['product_name']) || empty($data['category_id']) || empty($data['price']) || empty($data['quantity']) || empty($data['status']) || empty($data['description'])) {
+        //     echo "Vui lòng điền đầy đủ thông tin.";
+        //     return;
+        // }
+
+        $product = new Product;
+        $product->create($data);
+
+>>>>>>> 552f2c61625c2b9bf2b0160468e0831f7c15e49a
         header("location: " . ADMIN_URL . "?ctl=listsp");
+        exit();
     }
 
+<<<<<<< HEAD
     public function edit(){
         $id = $_GET['id'];
         //lay du lieu sp co id=$id
@@ -77,4 +103,7 @@ class AdminProductController
         header("location: " . ADMIN_URL . "?ctl=listsp");
         die;
     }
+=======
+    public function delete() {}
+>>>>>>> 552f2c61625c2b9bf2b0160468e0831f7c15e49a
 }
