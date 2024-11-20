@@ -7,10 +7,12 @@ require_once __DIR__ . "/../common/function.php";
 require_once __DIR__ . "/../models/BaseModel.php";
 require_once __DIR__ . "/../models/Category.php";
 require_once __DIR__ . "/../models/Product.php";
+require_once __DIR__ . "/../models/ProductVariant.php";
 //include controller
 require_once __DIR__ . "/../controllers/admin/AdminProductController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCategoryController.php";
 require_once __DIR__ . "/../controllers/admin/AdminUserController.php";
+require_once __DIR__ . "/../controllers/admin/ProductVariantController.php";
 require_once __DIR__ . "/../controllers/admin/OrderController.php";
 $ctl = $_GET['ctl'] ?? "";
 match ($ctl) {
@@ -29,6 +31,10 @@ match ($ctl) {
     "editcate"  => (new AdminCategoryController)->edit(),
     "updatecate" =>(new AdminCategoryController)->update(),
     "deletecate"  => (new AdminCategoryController)->delete(),
+    //productVariant
+    "listpv" =>(new ProductVariantController )->index(),
+    "addvariant" =>(new ProductVariantController )->create(),
+    "storevariant" =>(new ProductVariantController )->store(),
     //user
     "listuser"  => (new AdminUserController)->index(),
     //order

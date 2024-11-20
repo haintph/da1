@@ -9,6 +9,7 @@ class AdminCategoryController
 
     public function create()
     {
+        $message = $_SESSION['message'] ?? '';
         return view('admin.categories.add');
     }
     public function store()
@@ -23,6 +24,7 @@ class AdminCategoryController
         $data['img_category'] = $img_category;
         $categories = new Category;
         $categories->create($data);
+        $_SESSION['message'] = "Thêm dữ liệu thành công";
         header("location:" . ADMIN_URL . "?ctl=listcate");
     }
     public function edit()

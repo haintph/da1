@@ -1,55 +1,37 @@
 <?php
 include_once ROOT_DIR . "views/client/header.php" 
 ?>
- <main class="main-wrapper">
+
+<main class="main-wrapper">
         <!-- Start Shop Area  -->
         <div class="axil-single-product-area bg-color-white">
             <div class="single-product-thumb axil-section-gap pb--20 pb_sm--0 bg-vista-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 mb--40">
-                            <div class="row">
+                            <div class="row">   
                                 <div class="col-lg-10 order-lg-2">
                                     <div class="single-product-thumbnail-wrap zoom-gallery">
                                         <div class="product-large-thumbnail single-product-thumbnail axil-product">
                                             <div class="thumbnail">
-                                                <a href="assets/images/product/product-big-04.png" class="popup-zoom">
-                                                    <img src="assets/images/product/product-big-04.png" alt="Product Images">
+                                                <a href="<?= ROOT_URL . 'images/' . $product['img_product'] ?>" class="popup-zoom">
+                                                    <img src="<?= ROOT_URL . 'images/' . $product['img_product'] ?>" alt="Product Images">
                                                 </a>
                                             </div>
-                                            <div class="thumbnail">
-                                                <a href="assets/images/product/product-big-05.png" class="popup-zoom">
-                                                    <img src="assets/images/product/product-big-05.png" class="popup-zoom" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <a href="assets/images/product/product-big-06.png" class="popup-zoom">
-                                                    <img src="assets/images/product/product-big-06.png" class="popup-zoom" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <a href="assets/images/product/product-big-08.png" class="popup-zoom">
-                                                    <img src="assets/images/product/product-big-08.png" class="popup-zoom" alt="Product Images">
-                                                </a>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <a href="assets/images/product/product-big-07.png" class="popup-zoom">
-                                                    <img src="assets/images/product/product-big-07.png" class="popup-zoom" alt="Product Images">
-                                                </a>
-                                            </div>
+                                            
                                         </div>
                                         <div class="label-block">
                                             <div class="product-badget">20% OFF</div>
                                         </div>
                                         <div class="product-quick-view position-view">
-                                            <a href="assets/images/product/product-big-04.png" class="popup-zoom">
+                                            <a href="<?= ROOT_URL . 'images/' . $product['img_product'] ?>" class="popup-zoom">
                                                 <i class="far fa-search-plus"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 order-lg-1">
-                                    <div class="product-small-thumb small-thumb-wrapper small-thumb-style-two">
+                                    <!-- <div class="product-small-thumb small-thumb-wrapper small-thumb-style-two">
                                         <div class="small-thumb-img ">
                                             <img src="assets/images/product/product-thumb/thumb-01.png" alt="thumb image">
                                         </div>
@@ -65,14 +47,14 @@ include_once ROOT_DIR . "views/client/header.php"
                                         <div class="small-thumb-img">
                                             <img src="assets/images/product/product-thumb/thumb-05.png" alt="thumb image">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 mb--40">
                             <div class="single-product-content">
                                 <div class="inner">
-                                    <h2 class="product-title">Squre Cateye Sunglasses</h2>
+                                    <h2 class="product-title"><?= $product['product_name'] ?></h2>
                                     <span class="price-amount">$155.00 - $255.00</span>
                                     <div class="product-rating">
                                         <div class="star-rating">
@@ -87,16 +69,16 @@ include_once ROOT_DIR . "views/client/header.php"
                                         </div>
                                     </div>
                                     <ul class="product-meta">
-                                        <li><i class="fal fa-check"></i>In stock</li>
+                                        <li></i><?= $product['status'] ? 'Còn hàng' : 'Ngừng kinh doanh' ?></li>
                                         <li><i class="fal fa-check"></i>Free delivery available</li>
-                                        <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
+                                        
                                     </ul>
-                                    <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi pretium. Integer ante est, hendrerit in rutrum quis, elementum eget magna. Pellentesque sagittis dictum libero, eu dignissim tellus.</p>
+                                    <p class="description"><h4>Miêu tả :</h4><?= $product['description'] ?></p>
 
                                     <div class="product-variations-wrapper">
 
                                         <!-- Start Product Variation  -->
-                                        <div class="product-variation">
+                                        <!-- <div class="product-variation">
                                             <h6 class="title">Colors:</h6>
                                             <div class="color-variant-wrapper">
                                                 <ul class="color-variant mt--0">
@@ -108,7 +90,7 @@ include_once ROOT_DIR . "views/client/header.php"
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- End Product Variation  -->
 
                                         <!-- Start Product Variation  -->
@@ -142,40 +124,7 @@ include_once ROOT_DIR . "views/client/header.php"
                                     </div>
                                     <!-- End Product Action Wrapper  -->
 
-                                    <div class="product-desc-wrapper pt--80 pt_sm--60">
-                                        <h4 class="primary-color mb--40 desc-heading">Description</h4>
-                                        <div class="single-desc mb--30">
-                                            <h5 class="title">Specifications:</h5>
-                                            <p>We’ve created a full-stack structure for our working workflow processes, were from the funny the century initial all the made, have spare to negatives. But the structure was from the funny the century rather,
-                                                initial all the made, have spare to negatives.</p>
-                                        </div>
-                                        <div class="single-desc mb--5">
-                                            <h5 class="title">Care & Maintenance:</h5>
-                                            <p>Use warm water to describe us as a product team that creates amazing UI/UX experiences, by crafting top-notch user experience.</p>
-                                        </div>
-                                        <ul class="pro-des-features pro-desc-style-two pt-10">
-                                            <li class="single-features">
-                                                <div class="icon">
-                                                    <img src="assets/images/product/product-thumb/icon-3.png" alt="icon">
-                                                </div>
-                                                Easy Returns
-                                            </li>
-                                            <li class="single-features">
-                                                <div class="icon">
-                                                    <img src="assets/images/product/product-thumb/icon-2.png" alt="icon">
-                                                </div>
-                                                Quality Service
-                                            </li>
-                                            <li class="single-features">
-                                                <div class="icon">
-                                                    <img src="assets/images/product/product-thumb/icon-1.png" alt="icon">
-                                                </div>
-                                                Original Product
-                                            </li>
-                                        </ul>
-                                        <!-- End .pro-des-features -->
-                                    </div>
-                                    <!-- End .product-desc-wrapper -->
+                                    
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Trang chủ Doji</title>
+    <title><?= $title ?? '' ?> Doji</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -144,7 +144,7 @@
                                     <a href="<?= ROOT_URL . '?ctl=shop' ?>">Cửa hàng</a>
                                     <ul class="axil-submenu">
                                         <?php foreach($categories as $cate): ?>
-                                            <li><a href="#"><?= $cate['category_name'] ?></a></li>
+                                            <li><a href="<?= ROOT_URL . '?ctl=category&id=' . $cate['id'] ?>"><?= $cate['category_name'] ?></a></li>
                                         <?php endforeach ?>
                                     </ul>
                                 </li>

@@ -13,7 +13,7 @@ include_once ROOT_DIR . "views/client/header.php"
                     <h1 class="title">Bộ sưu tập thiết kế độc quyền</h1>
                     <p>Dòng sản phẩm giản dị với thiết kế ngắn bằng da lộn 100% Doji</p>
                     <div class="shop-btn">
-                        <a href="shop.html" class="axil-btn btn-bg-secondary right-icon">Xem ngay <i
+                        <a href="<?= ROOT_URL .'?ctl=shop' ?>" class="axil-btn btn-bg-secondary right-icon">Xem ngay <i
                                 class="fal fa-long-arrow-right"></i></a>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ include_once ROOT_DIR . "views/client/header.php"
         <div class="row g-lg-5 g-4">
             <div class="col-lg-6">
                 <div class="single-poster">
-                    <a href="shop.html">
+                    <a href="<?= ROOT_URL .'?ctl=shop' ?>">
                         <img src="<?= ROOT_URL . 'views/client/assets/images/product/poster/poster-08.png'?>" alt="eTrade promotion poster">
                         <div class="poster-content">
                             <div class="inner">
@@ -45,7 +45,7 @@ include_once ROOT_DIR . "views/client/header.php"
             </div>
             <div class="col-lg-6">
                 <div class="single-poster">
-                    <a href="#  ">
+                    <a href="<?= ROOT_URL  ?>">
                         <img src="<?= ROOT_URL . 'views/client/assets/images/product/poster/poster-09.png'?>" alt="eTrade promotion poster">
                         <div class="poster-content content-left">
                             <div class="inner">
@@ -74,12 +74,13 @@ include_once ROOT_DIR . "views/client/header.php"
             </div>
             <div
                 class="new-arrivals-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                <?php foreach($products as $pro): ?>
                 <div class="slick-single-layout">
                     <div class="axil-product product-style-four">
                         <div class="thumbnail">
-                            <a href="single-product.html">
+                            <a href="<?= ROOT_URL . '?ctl=details&id=' .$pro['id'] ?>">
                                 <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-1.png'?>" alt="Product Images">
+                                    src="<?= ROOT_URL . 'images/' .$pro['img_product']?>" alt="Product Images">
                             </a>
                             <div class="label-block label-right">
                                 <div class="product-badget">20% OFF</div>
@@ -89,7 +90,7 @@ include_once ROOT_DIR . "views/client/header.php"
                                     <li class="wishlist"><a href="wishlist.html"><i
                                                 class="far fa-heart"></i></a></li>
                                     <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                    <li class="quickview"><a href="" data-bs-toggle="modal"
                                             data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
                                     </li>
                                 </ul>
@@ -97,7 +98,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         </div>
                         <div class="product-content">
                             <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
+                                <h5 class="title"><a href="single-product.html"><?= $pro['product_name'] ?></a></h5>
                                 <div class="product-price-variant">
                                     <span class="price old-price">$80</span>
                                     <span class="price current-price">$60</span>
@@ -107,228 +108,7 @@ include_once ROOT_DIR . "views/client/header.php"
                     </div>
                 </div>
                 <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-2.png'?>" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$40</span>
-                                    <span class="price current-price">$40</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-3.png'?>" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">15% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$30</span>
-                                    <span class="price current-price">$24</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-4.png'?>" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">30% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$50</span>
-                                    <span class="price current-price">$40</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-5.png'?>" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$60</span>
-                                    <span class="price current-price">$50</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="<?= ROOT_URL . 'views/client/assets/images/product/jewellery/product-3.png'?>" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">15% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$30</span>
-                                    <span class="price current-price">$24</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-4.png" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">30% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$50</span>
-                                    <span class="price current-price">$40</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="axil-product product-style-four">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-5.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$60</span>
-                                    <span class="price current-price">$50</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End .slick-single-layout -->
+                <?php endforeach ?>
             </div>
         </div>
     </div>
@@ -715,152 +495,22 @@ include_once ROOT_DIR . "views/client/header.php"
         <div class="section-title-wrapper">
             <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i>
                 Danh mục</span>
-            <h2 class="title">Các loại trang sức</h2>
+            <h2 class="title">Các loại mặt hàng </h2>
         </div>
         <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+            <?php foreach($categories as $cate): ?>
             <div class="slick-single-layout">
                 <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-2.png"
+                    <a href="<?= ROOT_URL . '?ctl=category&id=' . $cate['id'] ?>">
+                        <img class="img-fluid" src="<?= ROOT_URL . 'images/' . $cate['img_category'] ?>"
                             alt="product categorie">
-                        <h6 class="cat-title">Barrette</h6>
+                        <h6 class="cat-title"><?= $cate['category_name'] ?></h6>
                     </a>
                 </div>
                 <!-- End .categrie-product -->
             </div>
             <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="300" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-3.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Base metals</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="400" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-4.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Estate Jewellery</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="500" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-5.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Foilbacks</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="600" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-6.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Kalabubu</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-7.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Medallion</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-8.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Nawarat ring</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <div class="slick-single-layout">
-                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="100" data-sal-duration="500">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-1.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Anklet</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-9.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Pledge Pins</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-10.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Prayer Jewellery</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-11.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Slave bracelet</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-12.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Pledge Pins</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
-            <div class="slick-single-layout">
-                <div class="categrie-product">
-                    <a href="#">
-                        <img class="img-fluid" src="assets/images/product/categories/jewelry-13.png"
-                            alt="product categorie">
-                        <h6 class="cat-title">Medallion</h6>
-                    </a>
-                </div>
-                <!-- End .categrie-product -->
-            </div>
-            <!-- End .slick-single-layout -->
+           <?php endforeach ?>
         </div>
     </div>
 </div>
@@ -876,12 +526,13 @@ include_once ROOT_DIR . "views/client/header.php"
                 <h2 class="title">Explore our Products</h2>
             </div>
             <div class="row row--15">
+                <?php foreach($products as $pro): ?>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                     <div class="axil-product product-style-one">
                         <div class="thumbnail">
-                            <a href="single-product.html">
+                            <a href="<?= ROOT_URL .'?ctl=details&id' . $pro['id'] ?>">
                                 <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-11.png" alt="Product Images">
+                                    src="<?= ROOT_URL .'images/' . $pro['img_product'] ?>" alt="Product Images">
                             </a>
                             <div class="label-block label-right">
                                 <div class="product-badget">20% OFF</div>
@@ -899,7 +550,7 @@ include_once ROOT_DIR . "views/client/header.php"
                         </div>
                         <div class="product-content">
                             <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
+                                <h5 class="title"><a href="single-product.html"><?= $pro['product_name'] ?></a></h5>
                                 <div class="product-price-variant">
                                     <span class="price old-price">$50</span>
                                     <span class="price current-price">$40</span>
@@ -920,469 +571,7 @@ include_once ROOT_DIR . "views/client/header.php"
                     </div>
                 </div>
                 <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-12.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Bracelet</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$40</span>
-                                    <span class="price current-price">$30</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-13.png" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">30% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$60</span>
-                                    <span class="price current-price">$45</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-14.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$80</span>
-                                    <span class="price current-price">$60</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-15.png" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">50% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Earring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$50</span>
-                                    <span class="price current-price">$38</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-1.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$40</span>
-                                    <span class="price current-price">$25</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-2.png" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">40% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$30</span>
-                                    <span class="price current-price">$25</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-3.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Ring</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$60</span>
-                                    <span class="price current-price">$40</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-4.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Bracelet</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$50</span>
-                                    <span class="price current-price">$40</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-5.png" alt="Product Images">
-                            </a>
-                            <div class="label-block label-right">
-                                <div class="product-badget">15% OFF</div>
-                            </div>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Locket</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$40</span>
-                                    <span class="price current-price">$30</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-6.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Necklace</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$60</span>
-                                    <span class="price current-price">$45</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                    <div class="axil-product product-style-one">
-                        <div class="thumbnail">
-                            <a href="single-product.html">
-                                <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
-                                    src="assets/images/product/jewellery/product-7.png" alt="Product Images">
-                            </a>
-                            <div class="product-hover-action">
-                                <ul class="cart-action">
-                                    <li class="wishlist"><a href="wishlist.html"><i
-                                                class="far fa-heart"></i></a></li>
-                                    <li class="select-option"><a href="cart.html">Add to Cart</a></li>
-                                    <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <div class="inner">
-                                <h5 class="title"><a href="single-product.html">Diamond Necklace</a></h5>
-                                <div class="product-price-variant">
-                                    <span class="price old-price">$80</span>
-                                    <span class="price current-price">$60</span>
-                                </div>
-                                <div class="color-variant-wrapper">
-                                    <ul class="color-variant">
-                                        <li class="color-extra-01 active"><span><span
-                                                    class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-02"><span><span class="color"></span></span>
-                                        </li>
-                                        <li class="color-extra-03"><span><span class="color"></span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product  -->
+                <?php endforeach ?>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center mt--20 mt_sm--0">
