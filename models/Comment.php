@@ -6,20 +6,20 @@ class Comment extends BaseModel
         $sql = "SELECT * FROM comments";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $categories;
+        $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $comments;
     }
     //Thêm 1 bản ghi
     public function create($data)
     {
-        $sql = "INSERT INTO categories(category_name, img_category,type) VALUES(:category_name,:img_category, :type)";
+        $sql = "INSERT INTO comments(product_id, user_id, content) VALUES (:product_id,:user_id, :content)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
     //Cập nhật
     public function update($id, $data)
     {
-        $sql = "UPDATE categories SET cate_name=:cate_name, type=:type WHERE id=:id";
+        $sql = "UPDATE comments SET cate_name=:cate_name, type=:type WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         //Them id vao mang
         $data['id'] = $id;
@@ -29,14 +29,14 @@ class Comment extends BaseModel
     public function delete($id)
     {
         //Chuyển trạng thái của soft_delete từ 0->1
-        $sql = "UPDATE categories SET soft_delete=1 WHERE id=:id";
+        $sql = "UPDATE comments SET soft_delete=1 WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
     }
     //Chi tiết 1 bản ghi 
     public function show($id)
     {
-        $sql = "SELECT * FROM categories";
+        $sql = "SELECT * FROM comments";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
