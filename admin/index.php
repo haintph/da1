@@ -2,7 +2,7 @@
 
 session_start();
 require_once __DIR__ . "/../env.php";
-
+require_once __DIR__ . "/../middleware.php";
 require_once __DIR__ . "/../common/function.php";
 //include model
 require_once __DIR__ . "/../models/BaseModel.php";
@@ -18,6 +18,7 @@ require_once __DIR__ . "/../controllers/admin/OrderController.php";
 require_once __DIR__ . "/../controllers/admin/AdminCommentController.php";
 
 $ctl = $_GET['ctl'] ?? "";
+checkAdmin();
 match ($ctl) {
     "" => view("admin.dashboard"),
     //product

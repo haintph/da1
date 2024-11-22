@@ -41,4 +41,13 @@ class Comment extends BaseModel
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getCommentsByProductId($product_id)
+    {
+
+        $sql = "SELECT * FROM comments WHERE product_id = :product_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['product_id' => $product_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

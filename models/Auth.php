@@ -48,4 +48,12 @@ class AuthModel extends BaseModel
 
         return $stmt->execute();
     }
+
+    public function findUserById($id)
+    {
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
 }
