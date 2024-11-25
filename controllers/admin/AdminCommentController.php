@@ -30,11 +30,6 @@ class AdminCommentController
                 $data['img_product'] = '';
             }
         }
-        // if (empty($data['product_name']) || empty($data['category_id']) || empty($data['price']) || empty($data['quantity']) || empty($data['status']) || empty($data['description'])) {
-        //     echo "Vui lòng điền đầy đủ thông tin.";
-        //     return;
-        // }
-
         $product = new Product;
         $product->create($data);
 
@@ -42,5 +37,55 @@ class AdminCommentController
         exit();
     }
 
-    public function delete() {}
+    public function formEdit()
+    {
+        if (!isset($_GET['id'])) {
+            die("id không hợp lệ!");
+        }
+
+        $email = $_GET['id'];
+
+        $user = (new Comment)->find($email);
+        if (!$user) {
+            die("Không tìm thấy user với email này!");
+        }
+
+        return view('admin.comments.edit', ['user' => $user]);
+    }
+
+    public function edit()
+    {
+        $id = $_GET['id'];
+        $product = (new Comment)->find($id);
+        $categories = (new Comment)->list();
+        $message = $_SESSION['message'] ?? '';
+        return view('admin.products.edit', compact('product', 'categories'));
+    }
+    public function update()
+    {
+        $data = $_POST;
+        (new Comment)->update($data['id'], $data);
+        $_SESSION['message'] = "Cập nhật dữ liệu thành công";
+
+        header("location: " . ADMIN_URL . "?ctl=list-comments");
+        die;
+    }
+
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+            if ($id) {
+                (new Comment)->delete($id);
+                $_SESSION['message'] = "Xóa dữ liệu thành công";
+                header("location: " . ADMIN_URL . "?ctl=list-comments");
+                exit();
+            } else {
+                echo "ID không tồn tại!";
+            }
+        } else {
+            echo "Yêu cầu không hợp lệ!";
+        }
+    }
 }

@@ -19,20 +19,13 @@ class Comment extends BaseModel
     //Cập nhật
     public function update($id, $data)
     {
-        $sql = "UPDATE comments SET cate_name=:cate_name, type=:type WHERE id=:id";
+        $sql = "UPDATE comments SET content=:content WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         //Them id vao mang
         $data['id'] = $id;
         $stmt->execute($data);
     }
     //Xoa ban ghi (Xoa mem khong xoa khoi Database)
-    public function delete($id)
-    {
-        //Chuyển trạng thái của soft_delete từ 0->1
-        $sql = "UPDATE comments SET soft_delete=1 WHERE id=:id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id' => $id]);
-    }
     //Chi tiết 1 bản ghi 
     public function show($id)
     {
@@ -49,5 +42,22 @@ class Comment extends BaseModel
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['product_id' => $product_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($id)
+    {
+        dd($id);
+        $sql = "DELETE FROM comments WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return true;
+    }
+
+    public function find($id)
+    {
+        $sql = "SELECT * FROM comments WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

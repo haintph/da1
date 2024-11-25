@@ -45,6 +45,10 @@ match ($ctl) {
     //order
     "list-order" => (new OrderController)->index(),
     "show-order" => (new OrderController)->show(),
-
+    //comments
+    "list-comments" => (new AdminCommentController)->index(),
+    "delete-comment" => (new AdminCommentController)->delete(),
+    "editComment"  => (new AdminCommentController)->formEdit(),
+    "commentEdit"  => (new AdminCommentController)->update(),
     default => view("errors.404"),
 };

@@ -50,9 +50,9 @@ include_once ROOT_DIR . "views/admin/header.php"
 						<thead>
 							<tr>
 								<th class="text-center">ID</th>
-								<th>User Name</th>
+								<th>User ID</th>
 								<th>Comment Content</th>
-								<th>Product Name</th>
+								<th>Product Id</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
@@ -64,21 +64,20 @@ include_once ROOT_DIR . "views/admin/header.php"
 										<div class="widget-content p-0">
 											<div class="widget-content-wrapper">
 												<div class="widget-content-left flex2">
-													<div class="widget-heading"><?= $comment['username'] ?></div>
+													<div class="widget-heading"><?= $comment['user_id'] ?></div>
 												</div>
 											</div>
 										</div>
 									</td>
 									<td><?= $comment['content'] ?></td>
-									<td><?= $comment['product_name'] ?></td>
+									<td><?= $comment['product_id'] ?></td>
 									<td class="text-center">
 										<a href="?ctl=comment-details&id=<?= $comment['id'] ?>"
 											class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
 											Details
 										</a>
-										<a href="?ctl=edit-comment&id=<?= $comment['id'] ?>"
-											class="btn btn-outline-warning border-0 btn-sm"
-											data-toggle="tooltip" title="Edit" data-placement="bottom">
+										<a href="?ctl=editComment&id=<?= urlencode($comment['id']) ?>" data-toggle="tooltip" title="Edit"
+											data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
 											<span class="btn-icon-wrapper opacity-8">
 												<i class="fa fa-edit fa-w-20"></i>
 											</span>

@@ -35,7 +35,6 @@ class AdminUserController
             $role = $_POST['role'] ?? 'client';
             $email = $_POST['email'];
             $image = '';
-
             // Xử lý ảnh (nếu có)
             if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
                 $file = $_FILES['image'];
