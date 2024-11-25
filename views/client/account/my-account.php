@@ -21,7 +21,7 @@ $message = $username ? '' : 'Bạn cần đăng nhập để truy cập trang n�
                 <div class="col-lg-6 col-md-4">
                     <div class="inner">
                         <div class="bradcrumb-thumb">
-                            <img src="assets/images/product/product-45.png" alt="Image">
+                            <img class="rounded-circle" style="width: 100px; height:100px;object-fit: cover;" src="<?= ROOT_URL . 'images/users/' . $user['image'] ?>" alt="Image">
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ $message = $username ? '' : 'Bạn cần đăng nhập để truy cập trang n�
                             <img src="assets/images/product/author1.png" alt="Hello Annie">
                         </div>
                         <div class="media-body">
-                            <h5 class="title mb-0"><?php echo htmlspecialchars($username); ?></h5>
+                            <h5 class="title mb-0"><?php echo htmlspecialchars( $user['username']); ?></h5>
                             <span class="joining-date">eTrade Member Since Sep 2020</span>
                         </div>
                     </div>
@@ -76,20 +76,73 @@ $message = $username ? '' : 'Bạn cần đăng nhập để truy cập trang n�
                     <div class="col-xl-9 col-md-8">
                         <div class="tab-content">
                             <!-- Trang Dashboard -->
-                            <div class="tab-pane fade show active" id="nav-dashboard" role="tabpanel">
-                                <div class="axil-dashboard-overview">
+                            <div class="container mt-5">
+                                <div class="axil-dashboard-overview card shadow-sm p-4">
+                                    <!-- Alert Message -->
                                     <?php if ($message): ?>
                                         <div class="alert alert-warning">
                                             <?php echo $message; ?>
                                         </div>
                                     <?php else: ?>
-                                        <div class="welcome-text">
-                                            Hello <?php echo htmlspecialchars($username); ?> (not <span><?php echo htmlspecialchars($username); ?>?</span> <a href="?ctl=logout">Log Out</a>)
+                                        <div class="welcome-text mb-4">
+                                            <h4>Hello, <?php echo htmlspecialchars( $user['username']); ?>!</h4>
+                                            <p>
+                                                Not <strong><?php echo htmlspecialchars( $user['username']); ?></strong>?
+                                                <a href="?ctl=logout" class="text-danger">Log Out</a>
+                                            </p>
                                         </div>
                                     <?php endif; ?>
-                                    <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+
+                                    <p>
+                                        From your account dashboard, you can view your recent orders, manage your shipping and billing addresses, and edit your profile details.
+                                    </p>
+                                    <form action="?ctl=editProfile" method="POST" enctype="multipart/form-data" class="mt-4">
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="username"
+                                                name="username"
+                                                value="<?php echo htmlspecialchars($user['username']); ?>"
+                                                required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email Address</label>
+                                            <input
+                                                type="email"
+                                                class="form-control"
+                                                id="email"
+                                                name="email"
+                                                value="<?php echo htmlspecialchars($user['email']); ?>"
+                                                required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="role" class="form-label">role Address</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="role"
+                                                name="role"
+                                                value="<?php echo htmlspecialchars($user['role']); ?>"
+                                                required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="profileImage" class="form-label">Upload Profile Picture</label>
+                                            <input
+                                                type="file"
+                                                class="form-control"
+                                                id="profileImage"
+                                                name="image"
+                                                accept="image/*" />
+                                        </div>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+
 
                             <!-- Các tab khác như Orders, Downloads, Address, Account Details -->
                             <div class="tab-pane fade" id="nav-orders" role="tabpanel">

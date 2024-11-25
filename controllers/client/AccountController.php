@@ -10,17 +10,20 @@ class AccountController
         $this->authModel = new AuthModel();
     }
     public function MyAccount()
-    {   
+    {
         if (isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
-            return view('client.account.my-account', ['username' => $username]);
+            $email = $_SESSION['email'];
+            $role = $_SESSION['role'];
+            $user = $this->authModel->findUserByEmail($email);
+            return view('client.account.my-account', compact('user'));
         } else {
             $_SESSION['message'] = "Bạn cần đăng nhập để truy cập trang này.";
             header("Location: ?ctl=sign-in"); // Chuyển hướng về trang đăng nhập
             exit;
         }
     }
-    
+
 
 
     public function SignIn($email = null, $password = null)
@@ -46,7 +49,7 @@ class AccountController
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
-
+                $_SESSION['email'] = $user['email'];
                 $_SESSION['message'] = "Đăng nhập thành công!";
                 return view('client.account.sign-in');
                 exit;
@@ -82,12 +85,51 @@ class AccountController
         return view('client.account.sign-up');
     }
 
+    public function editProfile()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'] ?? '';
+            $email = $_POST['email'];
+            $role = $_POST['role'];
+            $image = '';
+            if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
+                $file = $_FILES['image'];
+                $imageName = uniqid() . '-' . basename($file['name']);
+                $targetPath = __DIR__ . "/../../images/users/" . $imageName;
+
+                if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+                    $image = $imageName;
+                    echo "Ảnh đã được tải lên thành công.";
+                } else {
+                    echo "Lỗi khi tải ảnh lên.";
+                    exit();
+                }
+            }
+
+
+            if (empty($username) || empty($email)) {
+                echo "Vui lòng điền đầy đủ thông tin.";
+                return;
+            }
+            $user = new AuthModel();
+            $data = [
+                'username' => $username,
+                'image' => $image ?: null,
+                'email' => $email,
+                'role' => $role
+            ];
+            $user->edit($data);
+            header("Location: " . ROOT_URL . "?ctl=my-account");
+            exit();
+        }
+    }
+
     public function LogOut()
     {
         if (isset($_SESSION['username'])) {
             unset($_SESSION['username']);
-            session_destroy(); 
-    
+            session_destroy();
+
             $_SESSION['message'] = "Bạn đã đăng xuất thành công.";
             header("Location: ?ctl=sign-in");
             exit;
@@ -97,5 +139,4 @@ class AccountController
             exit;
         }
     }
-    
 }
